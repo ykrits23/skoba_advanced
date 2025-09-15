@@ -1,0 +1,36 @@
+my_gis_project/
+│
+├── main.py                 # Точка входу (ініціалізація QGIS, запуск GUI)
+├── config.py               # Налаштування програми (шляхи до ресурсів, параметри QGIS)
+├── requirements.txt        # Зовнішні пакети, якщо потрібно
+├── README.md
+│
+├── app/                    # Основний код програми
+│   ├── __init__.py
+│   ├── gui/                # Все, що стосується GUI
+│   │   ├── __init__.py
+│   │   ├── main_window.py  # Головне вікно програми
+│   │   ├── widgets/        # Користувацькі віджети (кнопки, панелі, інструменти)
+│   │   └── dialogs/        # Діалогові вікна
+│   │
+│   ├── core/               # Логіка GIS
+│   │   ├── __init__.py
+│   │   ├── layers.py       # Робота з векторними/растровими шарами
+│   │   ├── qt_layer_manager.py    #Якщо в UI потрібно підхоплювати подію
+│   │   ├── map_canvas.py   # Обгортка для QgsMapCanvas та інструментів навігації
+│   │   ├── processing.py   # Просторовий аналіз (QgsProcessing, GDAL)
+│   │   └── utils.py        # Допоміжні функції
+│   │
+│   ├── data/               # Шари, тимчасові дані
+│   │   ├── sample_shp/     # Тестові shapefile
+│   │   └── sample_gpkg/    # GeoPackage
+│   │
+│   └── resources/          # Ресурси GUI (іконки, стилі, qml)
+│       ├── icons/
+│       ├── styles/
+│       └── qml/
+│
+├── dist/                    # Після збірки PyInstaller
+├── build/                   # Тимчасові файли PyInstaller
+├── hooks/                   # Runtime hooks для PyInstaller (наприклад hook-qgis-runtime.py)
+└── scripts/                 # Додаткові утиліти, наприклад скрипт збірки exe
